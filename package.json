@@ -6,6 +6,7 @@
       "npm":  "1.0.x"
    },
    "dependencies": {
+      "request": "2.9.153",
       "tako": "0.2.2"
    }
 }
