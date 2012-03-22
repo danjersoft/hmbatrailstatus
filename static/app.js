@@ -59,8 +59,8 @@ $('#main').live('pagebeforecreate', function(e) {
             li = "<li>";
             li += '<img src="' + trail.imgUrl + '" class="ui-li-icon">';
             li += '<h3>' + trail.title + '</h3>';
-            li += '<p class="ul-li-desc"><strong>' + trail.description + '</strong></p>';
-            li += '<p class="ul-li-desc">' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
+            li += '<p><strong>' + trail.description + '</strong></p>';
+            li += '<p>' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
             li += "</li>";
             $list.append(li);
          }
