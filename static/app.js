@@ -39,7 +39,7 @@ $('#main').live('pagebeforecreate', function(e) {
          var $list = $('#main ul'), li, trails = [], now = new Date(), trail;
          $(data).find('item').each(function(index, item) {
             trails[index] = {
-               "imgUrl": $(item).find('media\\:thumbnail').attr('url'),
+               "imgUrl": $(item).find('thumbnail').attr('url'),
                "title": $(item).find('title').text(),
                "description": $($(item).find('description').text()).text(),
                "pubDate": new Date($(item).find('pubDate').text())
@@ -59,12 +59,12 @@ $('#main').live('pagebeforecreate', function(e) {
             li = "<li>";
             li += '<img src="' + trail.imgUrl + '" class="ui-li-icon">';
             li += '<h3>' + trail.title + '</h3>';
-            //li += '<p><strong>' + trail.description + '</strong></p>';
-            //li += '<p>' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
+            li += '<p><strong>' + trail.description + '</strong></p>';
+            li += '<p>' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
             li += "</li>";
             $list.append(li);
          }
          $list.listview('refresh');
-      });
+      }, 'xml');
    }
 });
