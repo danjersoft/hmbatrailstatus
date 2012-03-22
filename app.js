@@ -3,6 +3,7 @@ var tako = require('tako'), request = require('request'), path = require('path')
 app.route('/index.html').file(path.join(__dirname, 'static/index.html'));
 app.route('/').file(path.join(__dirname, 'static/index.html'));
 app.route('/app.js').file(path.join(__dirname, 'static/app.js'));
+app.route('/coords.js').file(path.join(__dirname, 'static/coords.js'));
 
 if (process.env.PORT) {
    app.route('/trailstatus/rss.php', function (req, resp) {
