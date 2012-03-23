@@ -4,6 +4,7 @@ $('#main').live('pagebeforecreate', function(e) {
    if (gps) {
       gps.getCurrentPosition(function(position) {
          getTrailData(position.coords);
+         $('#gps-message').show();
       }, function(error) {
          getTrailData();
       });
@@ -36,7 +37,7 @@ $('#main').live('pagebeforecreate', function(e) {
    }
    function getTrailData(location) {
       $.get('/trailstatus/rss.php', function(data) {
-         var $list = $('#main ul'), li, trails = [], now = new Date(), trail;
+         var $list = $('#main ul'), li, trails = [], now = new Date(), trail, coords;
          $(data).find('item').each(function(index, item) {
             trails[index] = {
                "imgUrl": $(item).find('thumbnail').attr('url'),
@@ -44,14 +45,21 @@ $('#main').live('pagebeforecreate', function(e) {
                "description": $($(item).find('description').text()).text(),
                "pubDate": new Date($(item).find('pubDate').text())
             };
+            if ((coords = getCoordsForTrail(trails[index].title)) && location) {
+               trails[index].d = Math.abs(location.latitude - coords.lat) + Math.abs(location.longitude - coords.long);
+            }
          });
          trails.sort(function(a, b) {
-            if (a.title.toLowerCase() < b.title.toLowerCase()) {
-               return -1
-            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
-               return 1;
+            if (location) {
+               return a.d - b.d;
             } else {
-               return 0;
+               if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                  return -1
+               } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                  return 1;
+               } else {
+                  return 0;
+               }
             }
          });
          for (var i = 0; i < trails.length; i++) {
@@ -66,5 +74,12 @@ $('#main').live('pagebeforecreate', function(e) {
          }
          $list.listview('refresh');
       }, 'xml');
+      function getCoordsForTrail(trailName) {
+         for (var i = 0; i < trailCoords.length; i++) {
+            if (trailCoords[i].trail === trailName) {
+               return trailCoords[i];
+            }
+         }
+      }
    }
 });
