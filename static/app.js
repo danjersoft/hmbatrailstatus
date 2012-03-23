@@ -64,7 +64,7 @@ $('#main').live('pagebeforecreate', function(e) {
          });
          for (var i = 0; i < trails.length; i++) {
             trail = trails[i];
-            li = "<li>";
+            li = '<li data-filtertext="' + trail.title + '">';
             li += '<img src="' + trail.imgUrl + '" class="ui-li-icon">';
             li += '<h3>' + trail.title + '</h3>';
             li += '<p><strong>' + trail.description + '</strong></p>';
