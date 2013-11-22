@@ -1,4 +1,5 @@
-$('#main').on('pagebeforecreate', function(e) {
+//$('#main').on('pagebeforecreate', function(e) {
+$(document).delegate('#main', 'pagebeforecreate', function(e) {
    var trailCoords;
    var gps = navigator.geolocation;
    if (gps) {
