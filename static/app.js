@@ -1,4 +1,4 @@
-$('#main').live('pagebeforecreate', function(e) {
+$('#main').on('pagebeforecreate', function(e) {
    var trailCoords;
    var gps = navigator.geolocation;
    if (gps) {
