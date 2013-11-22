@@ -47,6 +47,8 @@ $(document).delegate('#main', 'pagebeforecreate', function(e) {
                "pubDate": new Date($(item).find('pubDate').text())
             };
             if ((coords = getCoordsForTrail(trails[index].title)) && location) {
+                trails[index].lat = coords.lat;
+                trails[index].long = coords.long;
                trails[index].d = Math.abs(location.latitude - coords.lat) + Math.abs(location.longitude - coords.long);
             }
          });
@@ -70,6 +72,9 @@ $(document).delegate('#main', 'pagebeforecreate', function(e) {
             li += '<h3>' + trail.title + '</h3>';
             li += '<p><strong>' + trail.description + '</strong></p>';
             li += '<p>' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
+            li += '<p class="ui-li-aside"><a href="https://maps.google.com/maps?saddr='
+                    + location.latitude + ',' + location.longitude + '&daddr='
+                    + trail.lat + ',' + trail.long + '">D</a></p>';
             li += "</li>";
             $list.append(li);
          }
