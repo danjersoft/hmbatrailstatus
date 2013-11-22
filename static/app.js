@@ -72,7 +72,7 @@ $(document).delegate('#main', 'pagebeforecreate', function(e) {
             li += '<h3>' + trail.title + '</h3>';
             li += '<p><strong>' + trail.description + '</strong></p>';
             li += '<p>' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
-            li += '<p class="ui-li-aside"><a href="https://maps.google.com/maps?saddr='
+            li += '<p class="ui-li-aside"><a target="_blank" href="https://maps.google.com/maps?saddr='
                     + location.latitude + ',' + location.longitude + '&daddr='
                     + trail.lat + ',' + trail.long + '">D</a></p>';
             li += "</li>";
