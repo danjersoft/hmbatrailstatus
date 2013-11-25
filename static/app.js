@@ -19,9 +19,9 @@ $(document).delegate('#main', 'pagebeforecreate', function(e) {
          days = Math.floor(newTime / day);
          label += days;
          if (days > 1) {
-            label += ' days'
+            label += ' days';
          } else {
-            label += ' day'
+            label += ' day';
          }
       } else if (newTime > hour) {
          hours = Math.floor(newTime / hour);
@@ -57,7 +57,7 @@ $(document).delegate('#main', 'pagebeforecreate', function(e) {
                return a.d - b.d;
             } else {
                if (a.title.toLowerCase() < b.title.toLowerCase()) {
-                  return -1
+                  return -1;
                } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
                   return 1;
                } else {
@@ -74,7 +74,7 @@ $(document).delegate('#main', 'pagebeforecreate', function(e) {
             li += '<p>' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
             li += '<p class="ui-li-aside"><a target="_blank" href="https://maps.google.com/maps?saddr='
                     + location.latitude + ',' + location.longitude + '&daddr='
-                    + trail.lat + ',' + trail.long + '">D</a></p>';
+                    + trail.lat + ',' + trail.long + '"><img src="marker.png" class="marker"></a></p>';
             li += "</li>";
             $list.append(li);
          }
