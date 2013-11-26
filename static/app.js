@@ -74,7 +74,7 @@ $(document).delegate('#main', 'pagebeforecreate', function(e) {
             li += '<p>' + getTimeString(now.getTime() - trail.pubDate.getTime()) + '</p>';
             li += '<p class="ui-li-aside"><a target="_blank" href="https://maps.google.com/maps?saddr='
                     + location.latitude + ',' + location.longitude + '&daddr='
-                    + trail.lat + ',' + trail.long + '"><img src="marker.png" class="marker"></a></p>';
+                    + trail.lat + ',' + trail.long + '"><img src="img/marker.png" class="marker"></a></p>';
             li += "</li>";
             $list.append(li);
          }
