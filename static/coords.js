@@ -25,7 +25,7 @@
       "long": -85.634522
    },
    {
-      "trail": "O'Bannon Woods State Park",
+      "trail": "O Bannon Woods State Park",
       "lat": 38.199204,
       "long": -86.268511
    },
