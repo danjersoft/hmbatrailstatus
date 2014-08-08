@@ -7,6 +7,6 @@
    },
    "dependencies": {
       "request": "2.9.x",
-      "tako": "0.3.0"
+      "tako": "danjersoft/tako"
    }
 }
