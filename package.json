@@ -1,12 +1,12 @@
 {
    "name": "hmbatrailstatus",
+   "description": "HMBA Trail Status page based on jQuery Mobile",
    "version": "0.0.1",
    "engines": {
-      "node": "0.6.x",
-      "npm":  "1.0.x"
+      "node": "0.10.x"
    },
    "dependencies": {
-      "request": "2.9.153",
-      "tako": "0.2.2"
+      "request": "2.9.x",
+      "tako": "0.3.0"
    }
 }
